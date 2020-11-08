@@ -1,0 +1,40 @@
+.ShopCatalog {  
+    min-width: fit-content;
+    padding: 3px 7px 7px;
+    border: double gray 3px;
+    background-color: ivory;
+}
+
+.ShopCatalog > .Name {
+    font-weight: bold;
+    padding: 3px 7px;
+}
+
+.ShopCatalog > .Table {
+    display: table;
+    width: 100%;
+    border: solid gray 1px;
+}
+
+.ShopCatalog > .Table > .Row {
+    display: table-row;
+    background-color: #F0F0F0;
+}
+
+.ShopCatalog > .Table > .Row:nth-child(even) {
+    background-color: #D0D0D0;
+}
+
+.ShopCatalog > .Table > .Row  > .Cell {
+    display: table-cell;
+    padding: 1px 3px;
+    border: solid gray 1px;
+}
+
+.ShopCatalog > .Table > .Row.Header {
+    font-weight: bold;
+}
+
+.ShopCatalog > .Table > .Row > .Column-id {
+    font-weight: bold;
+}
