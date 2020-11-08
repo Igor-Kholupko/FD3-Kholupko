@@ -39,12 +39,6 @@ const ShopProduct = React.createClass({
         };
     },
 
-    toggleSelectedElementState: function ( currentElementState ) {
-        return currentElementState === this.States.default ?
-            this.States.selected :
-            this.States.default;
-    },
-
     onDeleteClicked: function ( event ) {
         event.stopPropagation();
         this.props.onDeleteClickedCallback(
@@ -54,11 +48,6 @@ const ShopProduct = React.createClass({
     },
 
     onElementClicked: function ( event ) {
-        this.setState( ( currentState, props ) => ( {
-            elementState: this.toggleSelectedElementState(
-                currentState.elementState,
-            ),
-        } ) );
         this.props.onElementClickedCallback(
             this.props.product,
             this.props.index,
