@@ -1,0 +1,39 @@
+.Filter {
+    max-width: fit-content;
+    padding: 3px 7px 7px;
+    border: double gray 3px;
+    background-color: ivory;
+}
+
+.Filter > .FilterForm {
+    padding: 5px 7px;
+}
+
+.Filter > .FilterForm > .FilterFormItem {
+    display: inline-block;
+    max-width: 100%;
+    padding: 3px 3px;
+}
+
+.Filter > .FilterForm > .FilterFormItem > .SortFlagInput,
+.Filter > .FilterForm > .FilterFormItem > .FilterFieldInput,
+.Filter > .FilterForm > .FilterFormItem > .ResetButton {
+    max-width: 100%;
+}
+
+.Filter > .FilterData > .DataBlock {
+    overflow-x: auto;
+    max-width: 100%;
+    width: 300px;
+    height: 100px;
+}
+
+.Filter > .FilterData > .DataBlock:disabled {
+    opacity: unset;
+    color: unset;
+    border-color: unset;
+}
+
+.Filter > .FilterData > .DataBlock:disabled > .DataItem {
+    color: unset;
+}
