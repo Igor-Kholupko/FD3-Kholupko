@@ -60,8 +60,8 @@ const ShopCatalog = React.createClass({
         } ) );
     },
 
-    onElementBlur: function ( event ) {
-        event.target.contains(event.relatedTarget) ?
+    onTableBlur: function ( event ) {
+        event.currentTarget.contains( event.relatedTarget ) ?
             null :
             this.setState( {
                 selectedProductID: null,
@@ -73,7 +73,7 @@ const ShopCatalog = React.createClass({
             React.DOM.div( { className: 'Name' }, this.props.shopName ),
             React.DOM.div( {
                     className: 'Table',
-                    onBlur: this.onElementBlur,
+                    onBlur: this.onTableBlur,
                     /* 'onBlur' event not fired without 'tabIndex' */
                     tabIndex: -1,
                 },
