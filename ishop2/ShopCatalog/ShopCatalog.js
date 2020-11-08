@@ -108,7 +108,8 @@ const ShopCatalog = React.createClass({
                                 ShopProduct.States.selected :
                                 undefined,
                         
-                        onDeleteClickedCallback: this.onDeleteClickedCallback,
+                        onDeleteClickedCallback:
+                            this.onProductDeleteClickedCallback,
                         onElementClickedCallback:
                             this.onProductElementClickedCallback,
                     } )
