@@ -1,0 +1,62 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <meta charset="utf-8" />
+    <title>IShop</title>
+        
+    <script src="https://unpkg.com/react@15/dist/react.js"></script> 
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script> 
+    
+    <script src="ShopCatalog/ShopProduct/ShopProduct.js"></script>
+    <script src="ShopCatalog/ShopCatalog.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="ShopCatalog/ShopProduct/ShopProduct.css" />
+    <link rel="stylesheet" type="text/css" href="ShopCatalog/ShopCatalog.css" />
+    <style>
+
+        div {
+            box-sizing: border-box;
+        }
+
+        .Data-id {
+            font-weight: bold;
+        }
+
+    </style>
+</head> 
+<body> 
+    <div id="main"></div> 
+
+    <script>
+
+        const ShopName = "IShop";
+        const Products = [
+            {id: 1, itemName: "Chair", price: 12.95, photoUrl: "http://host/Chair.jpg", storehouseQuantity: 62},
+            {id: 2, itemName: "Table", price: 49.95, photoUrl: "http://host/Table.jpg", storehouseQuantity: 18},
+            {id: 3, itemName: "Bed", price: 159.95, photoUrl: "http://host/Bed.jpg", storehouseQuantity: 8},
+            {id: 4, itemName: "Cabinet", price: 109.95, photoUrl: "http://host/Cabinet.jpg", storehouseQuantity: 15},
+        ];
+        const Fields = ['id', 'itemName', 'price', 'photoUrl', 'storehouseQuantity'];
+        const FieldNames = {
+            id: 'ID',
+            itemName: 'Name',
+            price: 'Price',
+            photoUrl: 'Photo URL',
+            storehouseQuantity: 'Quantity',
+        };
+
+        ReactDOM.render(
+            React.createElement(ShopCatalog, {
+                shopName: ShopName,
+                initialProducts: Products,
+                fields: Fields,
+                fieldNames: FieldNames,
+                canDeleteProducts: true,
+            }),
+            document.getElementById('main')
+        );
+
+    </script>
+
+</body> 
+</html>
