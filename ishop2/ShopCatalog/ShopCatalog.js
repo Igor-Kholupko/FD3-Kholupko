@@ -35,7 +35,7 @@ const ShopCatalog = React.createClass({
         return this.props.canDeleteProducts;
     },
 
-    onDeleteClickedCallback: function ( product, indexToDelete ) {
+    onProductDeleteClickedCallback: function ( product, indexToDelete ) {
         confirm(`Are you sure you want to delete product ` +
                 `#${product.id} '${product.itemName}'?`) ?
             this.setState( ( currentState, props ) => ( {
@@ -65,7 +65,7 @@ const ShopCatalog = React.createClass({
             null :
             this.setState( {
                 selectedProductID: null,
-        } );
+            } );
     },
 
     render: function() {
@@ -86,8 +86,10 @@ const ShopCatalog = React.createClass({
                     ) ),
                     this.showControlColumn() ?
                         React.DOM.div( {
-                            className: 'Cell HeaderCell Column-Control'
-                        }, 'Control' ) :
+                                className: 'Cell HeaderCell Column-Control'
+                            },
+                            'Control',
+                        ) :
                         null,
                 ),
                 this.state.products.map( ( product, index ) => 
