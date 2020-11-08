@@ -1,0 +1,19 @@
+.ShopProduct {
+    display: table-row;
+    background-color: #F0F0F0;
+}
+
+.ShopProduct:nth-child(even) {
+    background-color: #D0D0D0;
+}
+
+.ShopProduct.selected {
+    background-color: brown;
+    color: #F0F0F0;
+}
+
+.ShopProduct > .DataCell {
+    display: table-cell;
+    padding: 1px 3px;
+    border: solid gray 1px;
+}
