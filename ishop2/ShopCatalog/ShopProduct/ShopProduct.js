@@ -10,7 +10,6 @@ const ShopProduct = React.createClass({
     propTypes: {
         fields: React.PropTypes.arrayOf( React.PropTypes.string ),
         product: React.PropTypes.object,
-        index: React.PropTypes.number.isRequired,
 
         addControlCell: React.PropTypes.bool,
         deleteable: React.PropTypes.bool,
@@ -41,17 +40,11 @@ const ShopProduct = React.createClass({
 
     onDeleteClicked: function ( event ) {
         event.stopPropagation();
-        this.props.onDeleteClickedCallback(
-            this.props.product,
-            this.props.index,
-        );
+        this.props.onDeleteClickedCallback( this.props.product );
     },
 
     onElementClicked: function ( event ) {
-        this.props.onElementClickedCallback(
-            this.props.product,
-            this.props.index,
-        );
+        this.props.onElementClickedCallback( this.props.product );
     },
 
     getDynamicClassName: function () {
@@ -65,7 +58,7 @@ const ShopProduct = React.createClass({
             },
             this.props.fields.map( fieldName => React.DOM.div(
                 { key: fieldName, className: `DataCell Data-${fieldName}` },
-                this.props.product[fieldName],
+                this.props.product[ fieldName ],
             ) ),
             this.props.addControlCell ?
                 React.DOM.div( { className: 'DataCell Data-Control' },

@@ -35,14 +35,14 @@ const ShopCatalog = React.createClass({
         return this.props.canDeleteProducts;
     },
 
-    onProductDeleteClickedCallback: function ( product, indexToDelete ) {
+    onProductDeleteClickedCallback: function ( product ) {
         confirm(`Are you sure you want to delete product ` +
                 `#${product.id} '${product.itemName}'?`) ?
             this.setState( ( currentState, props ) => ( {
                 products:
-                    /* Mutates Array, but more faster, than filter */
-                    currentState.products.splice( indexToDelete, 1 ) &&
-                    currentState.products,
+                    currentState.products.filter(
+                        item => item.id !== product.id
+                    ),
                 selectedProductID:
                     product.id !== currentState.selectedProductID ?
                         currentState.selectedProductID :
@@ -92,13 +92,12 @@ const ShopCatalog = React.createClass({
                         ) :
                         null,
                 ),
-                this.state.products.map( ( product, index ) => 
+                this.state.products.map( product => 
                     React.createElement( ShopProduct, {
                         key: product.id,
 
                         fields: this.props.fields,
                         product,
-                        index,
 
                         addControlCell: this.showControlColumn(),
                         deleteable: this.props.canDeleteProducts,
