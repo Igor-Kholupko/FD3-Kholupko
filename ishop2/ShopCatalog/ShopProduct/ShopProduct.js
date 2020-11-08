@@ -32,7 +32,7 @@ const ShopProduct = React.createClass({
             addControlCell: false,
             deleteable: false,
 
-            initialElementState: ShopProductStates.default,
+            state: ShopProductStates.default,
 
             onDeleteClickedCallback: () => undefined,
             onElementClickedCallback: () => undefined,
@@ -47,7 +47,10 @@ const ShopProduct = React.createClass({
 
     onDeleteClicked: function ( event ) {
         event.stopPropagation();
-        this.props.onDeleteClickedCallback( this.props.product, this.props.index );
+        this.props.onDeleteClickedCallback(
+            this.props.product,
+            this.props.index,
+        );
     },
 
     onElementClicked: function ( event ) {
@@ -56,7 +59,10 @@ const ShopProduct = React.createClass({
                 currentState.elementState,
             ),
         } ) );
-        this.props.onElementClickedCallback( this.props.product, this.props.index );
+        this.props.onElementClickedCallback(
+            this.props.product,
+            this.props.index,
+        );
     },
 
     getDynamicClassName: function () {
