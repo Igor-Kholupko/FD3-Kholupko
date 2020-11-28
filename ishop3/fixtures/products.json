@@ -1,0 +1,6 @@
+[
+    {"id": 1, "itemName": "Chair", "price": 12.95, "photoUrl": "http://host/Chair.jpg", "storehouseQuantity": 62},
+    {"id": 2, "itemName": "Table", "price": 49.95, "photoUrl": "http://host/Table.jpg", "storehouseQuantity": 18},
+    {"id": 3, "itemName": "Bed", "price": 159.95, "photoUrl": "http://host/Bed.jpg", "storehouseQuantity": 8},
+    {"id": 4, "itemName": "Cabinet", "price": 109.95, "photoUrl": "http://host/Cabinet.jpg", "storehouseQuantity": 15}
+]
