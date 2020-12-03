@@ -13,7 +13,7 @@ class ShopProduct extends Component {
     };
 
     static propTypes = {
-        fields: PropTypes.arrayOf( PropTypes.string ),
+        fields: PropTypes.arrayOf(PropTypes.string),
         product: PropTypes.object,
         index: PropTypes.number.isRequired,
 
@@ -39,8 +39,8 @@ class ShopProduct extends Component {
         onDeleteClickedCallback: () => undefined,
         onElementClickedCallback: () => undefined,
     };
-    
-    onDeleteClicked = ( event ) => {
+
+    onDeleteClicked = (event) => {
         event.stopPropagation();
         this.props.onDeleteClickedCallback(
             this.props.product,
@@ -48,7 +48,7 @@ class ShopProduct extends Component {
         );
     };
 
-    onElementClicked = ( event ) => {
+    onElementClicked = (event) => {
         this.props.onElementClickedCallback(
             this.props.product,
             this.props.index,
@@ -57,19 +57,19 @@ class ShopProduct extends Component {
 
     getDynamicClassName() {
         return this.props.state === ShopProduct.States.selected
-        ?
+            ?
             'selected'
-        :
+            :
             '';
     };
 
     render() {
 
-        const DataCells = this.props.fields.map( fieldName => (
+        const DataCells = this.props.fields.map(fieldName => (
             <div key={fieldName} className={`DataCell Data-${fieldName}`}>
                 {this.props.product[fieldName]}
             </div>
-        ) );
+        ));
 
         const ControlCell = (
             (this.props.addControlCell) &&
@@ -77,7 +77,7 @@ class ShopProduct extends Component {
                 {
                     (this.props.deleteable) &&
                     <button className="DeleteButton"
-                            onClick={this.onDeleteClicked}
+                        onClick={this.onDeleteClicked}
                     >
                         Delete
                     </button>
@@ -87,7 +87,7 @@ class ShopProduct extends Component {
 
         return (
             <div className={`ShopProduct ${this.getDynamicClassName()}`}
-                 onClick={this.onElementClicked}
+                onClick={this.onElementClicked}
             >
                 {DataCells}
                 {ControlCell}

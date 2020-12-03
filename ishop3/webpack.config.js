@@ -2,25 +2,25 @@ const path = require('path');
 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-module.exports = { 
+module.exports = {
     entry: "./src/App.jsx",
-    output: { 
+    output: {
         path: __dirname,
         filename: "bundle.js",
     },
     devtool: 'source-map',
-    module: { 
+    module: {
         rules: [
-            { 
+            {
                 test: /\.jsx?$/, // какие файлы обрабатывать
                 exclude: /node_modules/, // какие файлы пропускать
                 use: { loader: "babel-loader" },
             },
             {
                 test: /\.css$/,
-                use: [ MiniCssExtractPlugin.loader, 'css-loader' ],
-            }            
-        ] 
+                use: [MiniCssExtractPlugin.loader, 'css-loader'],
+            }
+        ]
     },
     plugins: [
         new MiniCssExtractPlugin({
@@ -28,6 +28,6 @@ module.exports = {
         }),
     ],
     resolve: {
-      extensions: ['.js', '.jsx'],
+        extensions: ['.js', '.jsx'],
     }
 }

@@ -13,7 +13,7 @@ class ShopCatalog extends Component {
         shopName: PropTypes.string.isRequired,
         initialProducts: PropTypes.array.isRequired,
 
-        fields: PropTypes.arrayOf( PropTypes.string ).isRequired,
+        fields: PropTypes.arrayOf(PropTypes.string).isRequired,
         fieldNames: PropTypes.object,
 
         canDeleteProducts: PropTypes.bool,
@@ -34,46 +34,46 @@ class ShopCatalog extends Component {
         selectedProductID: null,
     };
 
-    showControlColumn = () =>  {
+    showControlColumn = () => {
         return this.props.canDeleteProducts;
     };
 
-    onProductDeleteClickedCallback = ( product, indexToDelete ) => {
+    onProductDeleteClickedCallback = (product, indexToDelete) => {
         confirm(`Are you sure you want to delete product ` +
-                `#${product.id} '${product.itemName}'?`) ?
-            this.setState( ( currentState, props ) => ( {
+            `#${product.id} '${product.itemName}'?`) ?
+            this.setState((currentState, props) => ({
                 products:
                     /* Mutates Array, but more faster, than filter */
-                    currentState.products.splice( indexToDelete, 1 ) &&
+                    currentState.products.splice(indexToDelete, 1) &&
                     currentState.products,
                 selectedProductID:
                     product.id !== currentState.selectedProductID ?
                         currentState.selectedProductID :
                         null,
-            } ) ) :
+            })) :
             null;
     };
 
-    onProductElementClickedCallback = ( product ) => {
-        this.setState( ( currentState, props ) => ( {
+    onProductElementClickedCallback = (product) => {
+        this.setState((currentState, props) => ({
             selectedProductID:
                 product.id !== currentState.selectedProductID ?
                     product.id :
                     null,
-        } ) );
+        }));
     };
 
-    onTableBlur = ( event ) => {
-        event.currentTarget.contains( event.relatedTarget ) ?
+    onTableBlur = (event) => {
+        event.currentTarget.contains(event.relatedTarget) ?
             null :
-            this.setState( {
+            this.setState({
                 selectedProductID: null,
-            } );
+            });
     };
 
     render() {
 
-        const Products = this.state.products.map( ( product, index ) => (
+        const Products = this.state.products.map((product, index) => (
             <ShopProduct
                 key={product.id}
                 fields={this.props.fields}
@@ -83,9 +83,9 @@ class ShopCatalog extends Component {
                 deleteable={this.props.canDeleteProducts}
                 state={
                     this.state.selectedProductID === product.id
-                    ? 
+                        ?
                         ShopProduct.States.selected
-                    :
+                        :
                         undefined
                 }
                 onDeleteClickedCallback={
@@ -95,26 +95,26 @@ class ShopCatalog extends Component {
                     this.onProductElementClickedCallback
                 }
             />
-        ) );
+        ));
 
         return (
             <div className="ShopCatalog">
                 <div className="Name">{this.props.shopName}</div>
                 <div className="Table"
-                     tabIndex={-1}
-                     onBlur={this.onTableBlur}
+                    tabIndex={-1}
+                    onBlur={this.onTableBlur}
                 >
                     <div className="Row Header">
                         {
-                            this.props.fields.map( field => (
+                            this.props.fields.map(field => (
                                 <div key={field}
-                                     className={
-                                         `Cell HeaderCell Column-${field}`
-                                     }
+                                    className={
+                                        `Cell HeaderCell Column-${field}`
+                                    }
                                 >
-                                    {this.props.fieldNames[ field ]}
+                                    {this.props.fieldNames[field]}
                                 </div>
-                            ) )
+                            ))
                         }
                         {
                             (this.showControlColumn()) &&

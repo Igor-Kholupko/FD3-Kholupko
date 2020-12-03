@@ -17,12 +17,12 @@ const FieldNames = {
 };
 
 ReactDOM.render(
-  <ShopCatalog 
-      shopName={ShopName}
-      initialProducts={Products}
-      fields={Fields}
-      fieldNames={FieldNames}
-      canDeleteProducts={true}
-  />,
-  document.getElementById('main') 
+    <ShopCatalog
+        shopName={ShopName}
+        initialProducts={Products}
+        fields={Fields}
+        fieldNames={FieldNames}
+        canDeleteProducts={true}
+    />,
+    document.getElementById('main')
 );
